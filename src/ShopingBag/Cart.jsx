@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeName, rename } from "../store";
 
 const Cart = () => {
   // 인자 state에는 reducer의 모든 state의 정보가 있다. state.key 로 값 가져오기 가능
-  let a = useSelector((state) => {
-    return state;
-  });
+  let cartList = useSelector((state) => state.cart);
+  let dispatch = useDispatch();
 
   return (
     <div>
@@ -21,12 +21,20 @@ const Cart = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>안녕</td>
-            <td>안녕</td>
-            <td>안녕</td>
-          </tr>
+          {cartList.map((it, idx) => (
+            <tr key={idx}>
+              <td>{it.id}</td>
+              <td>{it.name}</td>
+              <td>{it.count}</td>
+              <button
+                onClick={() => {
+                  dispatch(changeName);
+                }}
+              >
+                +
+              </button>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
