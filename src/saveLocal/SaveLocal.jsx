@@ -17,7 +17,7 @@ const SaveLocal = () => {
     let Item = localStorage.getItem("watched");
     console.log(Item);
     Item = JSON.parse(Item);
-    Item.push(1);
+    // Item.push(1);
     console.log(Item);
     localStorage.setItem("watched", JSON.stringify(Item));
     console.log("1", localStorage.getItem("watched"));

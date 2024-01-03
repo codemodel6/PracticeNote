@@ -16,7 +16,6 @@ function App() {
       <TabUI />
       <GB />
       <SaveLocal />
-      {/* <Cart /> */}
     </div>
   );
 }
